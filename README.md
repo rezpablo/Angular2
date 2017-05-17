@@ -1,4 +1,4 @@
-ANGULAR 2 - <http://loiane.training/course-status/> - proxima aula #14: OUTPUT PROPERTIES
+ANGULAR 2 - <http://loiane.training/course-status/> - proxima aula #18: components, services: ng generate
 ---
 ## Ambiente 
 ### ver aula 2 
@@ -9,6 +9,9 @@ sudo ln -s /home/pablo/workspace/node-v6.10.3-linux-x64/bin/npm /usr/local/bin/n
 
 - instalar tsc
 - instalar ng cli
+```
+$ npm install -g angular cli
+```
 
 # Component @Component
   Controller
@@ -75,7 +78,7 @@ onDestroy              | Antes da diretiva / component ser destruido            
 
 > Se muda o input Property, somente o ngOnChanges é disparado na mudança
 
-## VIEW CHIELD/ ACESSO DOM E TEMPLATE - Acesesso ao dom e ao template com viewChield a partir do @Component 
+## VIEW CHIELD/ ACESSO DOM E TEMPLATE - Acesso ao dom e ao template com viewChield a partir do @Component
 
 ---
 
@@ -84,10 +87,20 @@ onDestroy              | Antes da diretiva / component ser destruido            
 Quando criado um elemento ele sera declado dentro do module do diretorio corrent, Ex: Se for criado na / do projeto, sera criado no app.module
 
 ### Criar novo projeto
-ng new nomeProjeto
+```
+$ng new nomeProjeto
+ou
+ng init
+```
+
 
 ### run do projeto
+```
 $ ng serve
+$ ng serve --port 4201 --live-reload-port 49153
+
+```
+> Equivalente ao npm start
 
 ### Gerar Component
 $ ng g component nome
