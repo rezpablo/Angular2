@@ -1,0 +1,68 @@
+<!-- TODO ### TWO-WAY DATA BINDING-->
+<section>
+  <article>
+    <h3>Two-Way Binding</h3>
+    <div>
+
+      <!--  TODO TWO-WAY DATA BINDING - Opcao 1 Bind de propriedade -->
+      <input type="text"
+             [value]="nome"
+             (input)="nome = $event.target.value" /> <!-- TODO TWO-WAY DATA BINDING data Binding - USADO para fazer o binding-->
+      <p>Voce digitou: {{ nome }} </p>
+
+      <!--  TODO TTWO-WAY DATA BINDING - Opcao 2 Bind de evento -->
+      <input type="text"
+             [ngModel]="nome"
+             (ngModelChange)="nome = $event" /> <!-- TODO TWO-WAY DATA BINDING - USADO para fazer o binfing-->
+      <p>Voce digitou: {{ nome }} </p>
+
+      <!--  TODO TWO-WAY DATA BINDING - Opcao 3 TwoWay data binding -->
+      <input type="text" [(ngModel)]="nome" />
+      <p>Voce digitou: {{ nome }} </p>
+
+      <input type="text" bindon-ngModel="nome" />
+      <p>Voce digitou: {{ nome }} </p>
+
+      <div>
+        <p> Nome: {{ pessoa.nome }} e idade: {{  pessoa.idade }} </p>
+        <input type="text" [(ngModel)]="pessoa.nome" />
+        <input type="text" [(ngModel)]="pessoa.idade" />
+      </div>
+
+    </div>
+  </article>
+</section>
+
+
+<!-- TODO INPUT PROPERTIES -->
+<section>
+  <article>
+    <h3>Input/Output Properties</h3>
+
+    <!-- TODO INPUT PROPERTIES - Passando o valor de nomeCurso para o seletor atraves da prop nome-->
+    <app-input-property [nome]="nomeCurso" ></app-input-property>
+
+    <!-- TODO INPUT PROPERTIES - Passando o valor de nomeCurso para o seletor atraves da prop nome - utiliza tratamento do nome exposto nomeC-->
+    <app-input-property [nomeC]="nomeCurso" ></app-input-property>
+
+    <!-- TODO OUTPUT PROPERTIES -->
+    <contador [valor]="valorInicial"
+              (mudouValor)="onMudouValor($event)"
+    > <!-- TODO OUTPUT PROPERTIES - mudouValor e o evento customizado -->
+    </contador>
+
+  </article>
+</section>
+
+<section>
+  <article>
+    <h3>Component Life Cicle</h3>
+
+    <app-ciclo [valorInicial]="valor" *ngIf="!deletarCiclo"></app-ciclo>
+    <button (click)="mudarValor()">Mudar Valor</button>
+    <button (click)="destruirCiclo()">Deletar</button>
+
+  </article>
+</section>
+
+

@@ -1,0 +1,100 @@
+<p>
+  Lista de cursos : {{ nomePortal }}
+</p>
+
+<app-curso-detalhe></app-curso-detalhe>
+
+<ul>
+  <li *ngFor="let curso of cursos">
+    {{ curso }}
+  </li>
+</ul>
+
+
+<!-- TODO ### DATA BINDING -->
+<!-- TODO ### INTERPOLATION BINDING -->
+<section>
+  <article>
+    <p> String com interpolacao {{ url }}</p> <!-- TODO INTERPOLATION BINDING-->
+    <p> Resultado soma 1 + 1 : {{ 1 + 1 }}</p> <!-- TODO INTERPOLATION BINDING-->
+    <p> Resultado soma 1 + 1 nao é  : {{ 1 + 1 + getValor() }}</p> <!-- TODO INTERPOLATION BINDING-->
+    <p> Curso angular e gosto do curso :  {{ cursoAngular && getCurtirCurso() }}</p> <!-- TODO INTERPOLATION BINDING-->
+  </article>
+
+  <!--  TODO PROPERTY BINDING -->
+  <article>
+    <h3>Property Binding</h3>
+    <img src="{{ urlImagem }}"/>
+    <img [src]="urlImagem"/> <!-- TODO PROPERTY BINDING - uso por propety, nao precisa da interpolacao-->
+    <img bind-src="urlImagem"/> <!-- TODO PROPERTY BINDING - uso por propety, nao precisa da interpolacao-->
+    <p [textContent]="cursoAngular"></p> <!-- TODO PROPERTY BINDING para tags sem property [attr.colspan]-->
+  </article>
+
+  <!-- TODO ### CLASS E STYLE BINDING -->
+  <article>
+    <h3>Class e Style Binding</h3>
+    <div>
+      Selecione uma classe:
+      <select #classe (change)="0"> <!-- TODO CLASS E STYLE BINDING - #nomeVariavel cria variavel local no html - (change) e um evento-->
+        <option value="alert-success">Sucesso</option>
+        <option value="alert-info">info</option>
+        <option value="alert-warning">Alert</option>
+        <option value="alert-danger">Erro</option>
+      </select>
+      <br><br>
+
+      <div class="alert" role="alert" [class.alert-success]="classe.value == 'alert-success'">Sucesso</div> <!-- TODO CLASS E STYLE BINDING -->
+      <div class="alert" role="alert" [class.alert-info]="classe.value == 'alert-info'">info</div> <!-- TODO CLASS E STYLE BINDING -->
+      <div class="alert" role="alert" [class.alert-warning]="classe.value == 'alert-warning'">Alert</div> <!-- TODO CLASS E STYLE BINDING -->
+      <div class="alert" role="alert" [class.alert-danger]="classe.value == 'alert-danger'">Erro</div> <!-- TODO CLASS E STYLE BINDING -->
+
+      <!-- TODO CLASS E STYLE BINDING - Outra opcao-->
+      <div class="alert {{ classe.value}}" role="alert  ">Cor variavel </div> <!-- TODO CLASS E STYLE BINDING -->
+
+      <!-- TODO CLASS E STYLE BINDING - Style binding-->
+      <div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">Aparecer somente em caso de erro</div> <!-- TODO CLASS E STYLE BINDING -->
+
+    </div>
+  </article>
+
+</section>
+
+
+<!-- TODO ### EVENT BINDING-->
+<section>
+    <article>
+      <h3>Event Binding</h3>
+      <div>
+        <button (click)="botaoClicado()" class="btn btn-primary">Click aqui</button> <!-- TODO EVENT BINDING - chama funcao -->
+
+        <br><br>
+
+        <!-- TODO EVENT BINDING $event Pega o evento com o valor dentro -->
+        <input type="text"
+               (keyup)="onkeyup($event)"
+               (keyup.enter)="salvarValor(campoInput.value)"
+               (blur)="salvarValor($event.target.value)"
+               #campoInput
+        >
+        <p>Valor atual : {{ valorAtual }}</p>
+        <p>Valor atual : {{ valorSalvo}}</p>
+
+        <br><br>
+
+        <!-- TODO EVENT BINDING / CLASS E STYLE BINDING - use o uso de evento e class binding-->
+        <span
+          (mouseover)="onmouseout()"
+          (mouseout)="onmouseout()"
+          [class.highlight]="isMouseOver"
+        >
+          Passe o mouse
+
+        </span>
+
+
+      </div>
+    </article>
+</section>
+
+<app-cadastro></app-cadastro>
+
