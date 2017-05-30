@@ -8,12 +8,16 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {MenuComponent} from "./menu/menu.component";
 import {CursosModule} from "./cursos/cursos.module";
 import {CadastroModule} from "./cadastro/cadastro.module";
+import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
+import { TesteComponent } from './teste/teste.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    MenuComponent
+    MenuComponent,
+    DiretivaNgifComponent,
+    TesteComponent
   ],
   imports: [
     BrowserModule,

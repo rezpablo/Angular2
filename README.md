@@ -1,4 +1,4 @@
-ANGULAR 2 - <http://loiane.training/course-status/> - proxima aula #18: components, services: ng generate
+ANGULAR 2 - <http://loiane.training/course-status/> - proxima aula #24
 ---
 ## Ambiente 
 ### ver aula 2 
@@ -80,6 +80,40 @@ onDestroy              | Antes da diretiva / component ser destruido            
 
 ## VIEW CHIELD/ ACESSO DOM E TEMPLATE - Acesso ao dom e ao template com viewChield a partir do @Component
 
+
+## Pre processadores de CSS:
+> É possivel ao gerar o projeto definir qual será o pré processador de css utilizado: <br>
+> `ng new meu-projeto --style=sass` <br>
+> `ng new meu-projeto --style=less` <br>
+> `ng new meu-projeto --style=stylus` <br>
+OU 
+Modificar a extensao de css padrao com: <br>
+`ng set defaults.styleExt scss` | less | styl 
+
+---
+
+## Estrutura do projeto ng-cli
+```
+.
+projeto/
+|-- config - # configuracao apar deploy/buuld/testes
+|-- dist # Gerado o build da aplicacao 
+|-- e2e # testes end-to-end
+|-- node_modules # contem os pacotes npm da app pachage.json
+|-- public # diretorio genérico
+|-- src # Código fonte da aplicacao
+angular-cli.json # infos sobre o projeto e prod build, # TODO ao adicionar css, bootstrap - adicionar neste arqiov
+tsslint.json $ configuracoes de lint
+app
+
+
+```
+
+
+
+
+- e2e
+
 ---
 
 ## Comandos ng cli
@@ -88,11 +122,10 @@ Quando criado um elemento ele sera declado dentro do module do diretorio corrent
 
 ### Criar novo projeto
 ```
-$ng new nomeProjeto
+$ ng new nomeProjeto
 ou
 ng init
 ```
-
 
 ### run do projeto
 ```
@@ -116,6 +149,57 @@ $ ng g module nome
 $ ng g service cursos/cursos
 > 
 
+* Para todos os casos de generate pode-se passar o caminho de onde deve criar os arquivos... ex 
+`$ ng g service diretiva-ngif/diretiva-if`
+
+## NG LINT scan em busca de erros e style guide
+`$ ng ling`
+## NG TEST executa testes jasmine 
+## NG e2e testes e2e com protactor - testes de integracao
+
+# package.json 
+## Dependencies - Usandos para executar o projeto 
+## DevDependencies  - Usadas somente para o desenvolvimento
+
+## Build
+### Build Desenvolvimento
+ $ ng build | ng build --dev
+ 
+ - Build gerado em dist, codigo fonte, codigo que da para debugar
+ 
+### Build Prod
+ $ ng build --prod
+ Codigo de main e polifils ofuscado e minificado   
+
+## Bibliotecas externas
+npm install --save bootstrap@next
+`-- save -> assim ele instala no package.json`
+
+-  Imports Externos de javascript e css
+Importar no angular-cli.json > "styles" e "scripts"
+
+Importar no index somente fonts e icones
+
+## Materialize
+npm install angular2-materialize --save
+npm install materialize-css --save
+npm install jquery@^2.2. --save
+
+adicionar o scripts para o angular-cli.json
+adicionar no index.html os icons 
+
+importar de forma global @import o css no style.css
+
+importar no app.module o module MaterializeModule
+
+
+## Lodash (Biblioteca global)
+npm install --save lodash
+npm install --save @types/lodash
+
+Importar no @component que for utilizar
+import * as _ from 'lodash';
+
 
 Dicas
 ---
@@ -131,6 +215,12 @@ Adicionar em `.angular-cli.json`
         "styles.css",
       ],
 ```
+ 
+##  Boas praticas ....
+* Usar ng-lint
+* minhaVariavel : string # nao utilizar espaco=====> minhaVariavel : string
+
+
  
  
 

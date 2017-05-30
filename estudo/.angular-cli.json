@@ -3,7 +3,7 @@
   "project": {
     "name": "dashboard"
   },
-  "apps": [
+  "apps": [ // todo Colocat aqui css / js adicionais
     {
       "root": "src",
       "outDir": "dist",
@@ -52,7 +52,9 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "lazyRoutePrefix": "+", // Carregar Roteamento lazy, conforme a necessidade
+    "component": {
+    }
   }
 }
